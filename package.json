@@ -1,0 +1,27 @@
+{
+  "name": "saar",
+  "version": "1.0.4",
+  "description": "Tools that simplifies the creation of AR content, based on ThreeJS for React",
+  "keywords": [
+    "ar",
+    "react",
+    "three"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chong Wen Hao",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@react-spring/three": "9.6.1",
+    "@react-three/drei": "^9.97.0",
+    "@react-three/fiber": "^8.15.16",
+    "@react-three/xr": "^5.7.1",
+    "@types/three": "^0.161.2",
+    "os": "^0.1.2",
+    "spring": "^0.0.0",
+    "three": "^0.161.0",
+    "uniqid": "^5.4.0"
+  }
+}
