@@ -1,11 +1,6 @@
 import { type SpringValue, animated } from '@react-spring/three';
 import { type InterfaceModel } from '../Behaviour';
-import {
-  useEffect,
-  type MutableRefObject,
-  useState,
-  type ReactNode,
-} from 'react';
+import { useEffect, type MutableRefObject, useState } from 'react';
 import { Outline } from '../Outline';
 import { Vector3 } from 'three';
 import { UIColumnItem } from '../ui_component/UIColumnItem';
@@ -28,7 +23,7 @@ type InterfaceProps = {
  * Component for showing floating UI.
  */
 export function InterfaceComponent(props: InterfaceProps) {
-  const [components, setComponents] = useState<ReactNode>();
+  const [components, setComponents] = useState<JSX.Element>();
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 

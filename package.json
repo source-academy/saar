@@ -19,6 +19,12 @@
   "author": "Chong Wen Hao",
   "license": "Apache-2.0",
   "devDependencies": {
+    "typescript": "^5.4.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/react": "^18.2.73",
     "@react-spring/three": "9.6.1",
     "@react-three/drei": "^9.97.0",
     "@react-three/fiber": "^8.15.16",
@@ -28,11 +34,6 @@
     "os": "^0.1.2",
     "spring": "^0.0.0",
     "three": "^0.161.0",
-    "typescript": "^5.4.3",
     "uniqid": "^5.4.0"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   }
 }

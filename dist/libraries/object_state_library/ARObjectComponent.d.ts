@@ -1,5 +1,4 @@
 import { type ARObject } from './ARObject';
-import { type ReactNode } from 'react';
 import { Vector3 } from 'three';
 import React from 'react';
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
     getUserPosition: () => Vector3;
     setUUID: (uuid: string) => void;
     onSelect?: (arObject: ARObject) => void;
-    children?: ReactNode;
+    children?: JSX.Element | JSX.Element[];
 };
 /**
  * Component for showing a single AR object.

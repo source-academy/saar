@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { type UIBasicItem, UILayoutItem, type PaddingType } from './UIItem';
 import { Color, Vector3 } from 'three';
 import React from 'react';
@@ -177,7 +177,7 @@ function Component(props: {
       updateChildrenAlignment();
       return null;
     }
-    let children: ReactNode[] = [];
+    let children: JSX.Element[] = [];
     for (let i = 0; i < component.children.length; i++) {
       const child = component.children[i];
       const childPosition = childProps.componentPositions[i];

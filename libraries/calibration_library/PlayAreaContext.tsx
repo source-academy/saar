@@ -1,5 +1,5 @@
 import { useThree } from '@react-three/fiber';
-import { type ReactNode, createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { Vector3, Euler } from 'three';
 import React from 'react';
 
@@ -18,7 +18,7 @@ const Context = createContext<ContextType>({
 });
 
 type Props = {
-  children: ReactNode;
+  children: JSX.Element;
 };
 
 /**
@@ -32,7 +32,7 @@ type Props = {
  *
  * Components within it can call 'usePlayArea' to obtain this context.
  */
-export function PlayAreaContext(props: Props) {
+export function PlayAreaContext(props: Props): JSX.Element {
   const [origin, setOrigin] = useState<Vector3>(new Vector3(0, 0, 0));
   const [angle, setAngle] = useState<number>(0);
   const three = useThree();
@@ -47,9 +47,9 @@ export function PlayAreaContext(props: Props) {
       new Vector3(
         cameraPosition.x,
         cameraPosition.y - DEFAULT_HEIGHT,
-        cameraPosition.z,
+        cameraPosition.z
       ),
-      three.camera.rotation,
+      three.camera.rotation
     );
   }
 

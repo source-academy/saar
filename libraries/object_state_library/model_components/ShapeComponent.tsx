@@ -1,4 +1,4 @@
-import { type MutableRefObject, type ReactNode } from 'react';
+import { type MutableRefObject } from 'react';
 import { type ShapeModel } from '../Behaviour';
 import { type SpringValue, animated } from '@react-spring/three';
 import { Outline } from '../Outline';
@@ -10,7 +10,7 @@ type ShapeProps = {
   springPosition: SpringValue<[number, number, number]>;
   isSelected: boolean;
   isInFront: boolean;
-  children: ReactNode | undefined;
+  children?: JSX.Element | JSX.Element[];
 };
 
 /**

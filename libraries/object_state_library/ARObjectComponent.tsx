@@ -1,6 +1,6 @@
 import { Interactive } from '@react-three/xr';
 import { type ARObject } from './ARObject';
-import { type MutableRefObject, type ReactNode, useRef, useState } from 'react';
+import { type MutableRefObject, useRef, useState } from 'react';
 import {
   AlwaysRender,
   FixRotation,
@@ -31,7 +31,7 @@ type Props = {
   getUserPosition: () => Vector3;
   setUUID: (uuid: string) => void;
   onSelect?: (arObject: ARObject) => void;
-  children?: ReactNode;
+  children?: JSX.Element | JSX.Element[];
 };
 
 type SpringProps = {
@@ -142,7 +142,7 @@ function updatePosition(
 type ModelProps = {
   arObject: ARObject;
   meshRef: MutableRefObject<any>;
-  children: ReactNode | undefined;
+  children?: JSX.Element | JSX.Element[];
   springPosition: SpringValue<[number, number, number]>;
   isInFront: boolean;
   isSelected: boolean;

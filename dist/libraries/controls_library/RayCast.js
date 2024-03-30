@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getIntersection = void 0;
 const three_1 = require("three");
-const raycaster = new three_1.Raycaster();
 /**
  * Returns first object in the middle of the screen, if any.
  *
@@ -15,6 +14,7 @@ const raycaster = new three_1.Raycaster();
  * @param coreObject Parent node containing all objects
  */
 function getIntersection(camera, coreObject) {
+    const raycaster = new three_1.Raycaster();
     const pointer = new three_1.Vector2(0, 0);
     raycaster.setFromCamera(pointer, camera);
     // Get all meshes, including indirect child meshes

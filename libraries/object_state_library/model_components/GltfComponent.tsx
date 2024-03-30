@@ -1,7 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import {
   type MutableRefObject,
-  type ReactNode,
   Suspense,
   useEffect,
   useRef,
@@ -21,7 +20,7 @@ type GltfProps = {
   arObject: ARObject;
   meshRef: MutableRefObject<any>;
   springPosition: SpringValue<[number, number, number]>;
-  children: ReactNode | undefined;
+  children?: JSX.Element | JSX.Element[];
 };
 
 /**

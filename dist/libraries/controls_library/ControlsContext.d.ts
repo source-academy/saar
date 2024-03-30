@@ -1,4 +1,3 @@
-import { type ReactNode } from 'react';
 import { type Mesh, Vector3 } from 'three';
 import React from 'react';
 type ContextType = {
@@ -7,7 +6,7 @@ type ContextType = {
     setObjectInSightCallback: (callback: (prev: Mesh | undefined, current: Mesh | undefined) => void) => void;
 };
 type Props = {
-    children: ReactNode;
+    children: JSX.Element;
 };
 /**
  * Parent component with controls context.
@@ -30,6 +29,6 @@ type Props = {
  *
  * Components within it can call 'useControls' to obtain this context.
  */
-export declare function ControlsContext(props: Props): React.JSX.Element;
+export declare function ControlsContext(props: Props): JSX.Element;
 export declare function useControls(): ContextType;
 export {};

@@ -1,4 +1,4 @@
-import { type MutableRefObject, type ReactNode } from 'react';
+import { type MutableRefObject } from 'react';
 import { type ShapeModel } from '../Behaviour';
 import { type SpringValue } from '@react-spring/three';
 import React from 'react';
@@ -8,7 +8,7 @@ type ShapeProps = {
     springPosition: SpringValue<[number, number, number]>;
     isSelected: boolean;
     isInFront: boolean;
-    children: ReactNode | undefined;
+    children?: JSX.Element | JSX.Element[];
 };
 /**
  * Component for showing a Three.js shape.

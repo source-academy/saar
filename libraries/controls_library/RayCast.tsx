@@ -8,8 +8,6 @@ import {
   Vector2,
 } from 'three';
 
-const raycaster = new Raycaster();
-
 /**
  * Returns first object in the middle of the screen, if any.
  *
@@ -22,6 +20,7 @@ const raycaster = new Raycaster();
  * @param coreObject Parent node containing all objects
  */
 export function getIntersection(camera: Camera, coreObject: Object3D) {
+  const raycaster = new Raycaster();
   const pointer = new Vector2(0, 0);
   raycaster.setFromCamera(pointer, camera);
   // Get all meshes, including indirect child meshes
@@ -68,7 +67,7 @@ function getCascadeMeshs(children: Object3D<Object3DEventMap>[]) {
  */
 function getTopParent(
   child: Object3D<Object3DEventMap>,
-  coreObject: Object3D,
+  coreObject: Object3D
 ): Mesh | undefined {
   let parent = child;
   let lastMesh = child;

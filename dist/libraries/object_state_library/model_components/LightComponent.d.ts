@@ -1,4 +1,4 @@
-import { type MutableRefObject, type ReactNode } from 'react';
+import { type MutableRefObject } from 'react';
 import { type ARObject } from '../ARObject';
 import { type LightModel } from '../Behaviour';
 import { type SpringValue } from '@react-spring/three';
@@ -8,7 +8,7 @@ type LightProps = {
     arObject: ARObject;
     meshRef: MutableRefObject<any>;
     springPosition: SpringValue<[number, number, number]>;
-    children: ReactNode | undefined;
+    children?: JSX.Element | JSX.Element[];
 };
 /**
  * Component for a light source shining from a particular positon.

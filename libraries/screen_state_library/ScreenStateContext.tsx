@@ -1,11 +1,4 @@
-import {
-  type ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { XR } from '@react-three/xr';
 import { Canvas } from '@react-three/fiber';
 import React from 'react';
@@ -13,8 +6,8 @@ import React from 'react';
 type ContextType = {
   overlayRef: React.RefObject<HTMLDivElement> | null;
   domOverlay: XRDOMOverlayInit | undefined;
-  setState: (arState: ReactNode, overlayState: ReactNode) => void;
-  component: ReactNode;
+  setState: (arState: JSX.Element, overlayState: JSX.Element) => void;
+  component: JSX.Element;
 };
 
 const Context = createContext<ContextType>({
@@ -25,7 +18,7 @@ const Context = createContext<ContextType>({
 });
 
 type Props = {
-  children: ReactNode;
+  children: JSX.Element;
 };
 
 /**
@@ -42,9 +35,9 @@ type Props = {
  *
  * Components within it can call 'useScreenState' to obtain this context.
  */
-export function ScreenStateContext(props: Props) {
-  const [arState, setArState] = useState<ReactNode>(<group></group>);
-  const [overlayState, setOverlayState] = useState<ReactNode>(<></>);
+export function ScreenStateContext(props: Props): JSX.Element {
+  const [arState, setArState] = useState<JSX.Element>(<group></group>);
+  const [overlayState, setOverlayState] = useState<JSX.Element>(<></>);
   const isXRSession = useRef<boolean>(false);
 
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -59,7 +52,7 @@ export function ScreenStateContext(props: Props) {
       <div ref={overlayRef} style={{ userSelect: 'none' }} />
     </>
   );
-  const [component, setComponent] = useState<ReactNode>(defaultComponent);
+  const [component, setComponent] = useState<JSX.Element>(defaultComponent);
 
   useEffect(() => {
     if (!overlayRef) return;
@@ -106,13 +99,13 @@ export function ScreenStateContext(props: Props) {
         >
           {isXRSession.current ? overlayState : <></>}
         </div>
-      </>,
+      </>
     );
   }
 
   function setStates(
-    newArState: ReactNode | undefined,
-    newOverlayState: ReactNode | undefined,
+    newArState: JSX.Element | undefined,
+    newOverlayState: JSX.Element | undefined
   ) {
     if (newArState) {
       setArState(newArState);

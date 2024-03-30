@@ -1,4 +1,4 @@
-import { type MutableRefObject, type ReactNode } from 'react';
+import { type MutableRefObject } from 'react';
 import { type ARObject } from '../ARObject';
 import { type LightModel } from '../Behaviour';
 import { type SpringValue, animated } from '@react-spring/three';
@@ -9,7 +9,7 @@ type LightProps = {
   arObject: ARObject;
   meshRef: MutableRefObject<any>;
   springPosition: SpringValue<[number, number, number]>;
-  children: ReactNode | undefined;
+  children?: JSX.Element | JSX.Element[];
 };
 
 /**

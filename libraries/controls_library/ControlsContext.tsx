@@ -1,12 +1,5 @@
 import { useFrame, useThree } from '@react-three/fiber';
-import {
-  type ReactNode,
-  createContext,
-  createRef,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import { createContext, createRef, useContext, useRef, useState } from 'react';
 import { type Mesh, Quaternion, Vector3 } from 'three';
 import { getIntersection } from './RayCast';
 import { useHitTest } from '@react-three/xr';
@@ -16,7 +9,7 @@ type ContextType = {
   hitPointPosition: Vector3;
   objectInSight: React.MutableRefObject<any>;
   setObjectInSightCallback: (
-    callback: (prev: Mesh | undefined, current: Mesh | undefined) => void,
+    callback: (prev: Mesh | undefined, current: Mesh | undefined) => void
   ) => void;
 };
 
@@ -27,7 +20,7 @@ const Context = createContext<ContextType>({
 });
 
 type Props = {
-  children: ReactNode;
+  children: JSX.Element;
 };
 
 /**
@@ -51,13 +44,13 @@ type Props = {
  *
  * Components within it can call 'useControls' to obtain this context.
  */
-export function ControlsContext(props: Props) {
+export function ControlsContext(props: Props): JSX.Element {
   const three = useThree();
 
   // Hit Test
 
   const [hitPointPosition, setHitPointPosition] = useState<Vector3>(
-    new Vector3(),
+    new Vector3()
   );
 
   useHitTest((hitMatrix, _) => {

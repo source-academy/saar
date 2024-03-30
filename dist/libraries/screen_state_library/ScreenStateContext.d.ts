@@ -1,14 +1,13 @@
 /// <reference types="webxr" />
-import { type ReactNode } from 'react';
 import React from 'react';
 type ContextType = {
     overlayRef: React.RefObject<HTMLDivElement> | null;
     domOverlay: XRDOMOverlayInit | undefined;
-    setState: (arState: ReactNode, overlayState: ReactNode) => void;
-    component: ReactNode;
+    setState: (arState: JSX.Element, overlayState: JSX.Element) => void;
+    component: JSX.Element;
 };
 type Props = {
-    children: ReactNode;
+    children: JSX.Element;
 };
 /**
  * Parent component with screen state context.
@@ -24,6 +23,6 @@ type Props = {
  *
  * Components within it can call 'useScreenState' to obtain this context.
  */
-export declare function ScreenStateContext(props: Props): React.JSX.Element;
+export declare function ScreenStateContext(props: Props): JSX.Element;
 export declare function useScreenState(): ContextType;
 export {};

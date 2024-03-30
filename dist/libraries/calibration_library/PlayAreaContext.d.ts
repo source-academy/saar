@@ -1,6 +1,5 @@
-import { type ReactNode } from 'react';
+/// <reference types="react" />
 import { Vector3, Euler } from 'three';
-import React from 'react';
 type ContextType = {
     setCameraAsOrigin: () => void;
     setPositionAsOrigin: (origin: Vector3, cameraRotation: Euler) => void;
@@ -8,7 +7,7 @@ type ContextType = {
     getCameraRotation: () => Euler;
 };
 type Props = {
-    children: ReactNode;
+    children: JSX.Element;
 };
 /**
  * Parent component with play area context.
@@ -21,6 +20,6 @@ type Props = {
  *
  * Components within it can call 'usePlayArea' to obtain this context.
  */
-export declare function PlayAreaContext(props: Props): React.JSX.Element;
+export declare function PlayAreaContext(props: Props): JSX.Element;
 export declare function usePlayArea(): ContextType;
 export {};

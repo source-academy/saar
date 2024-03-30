@@ -1,4 +1,4 @@
-import { type MutableRefObject, type ReactNode } from 'react';
+import { type MutableRefObject } from 'react';
 import { type GltfModel } from '../Behaviour';
 import { type ARObject } from '../ARObject';
 import { type SpringValue } from '@react-spring/three';
@@ -8,7 +8,7 @@ type GltfProps = {
     arObject: ARObject;
     meshRef: MutableRefObject<any>;
     springPosition: SpringValue<[number, number, number]>;
-    children: ReactNode | undefined;
+    children?: JSX.Element | JSX.Element[];
 };
 /**
  * Component for showing GLTF model.
