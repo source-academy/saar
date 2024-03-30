@@ -8,11 +8,11 @@ import {
 } from 'react';
 import { Outline } from '../Outline';
 import { Vector3 } from 'three';
-import UIColumnItem from '../ui_component/UIColumnItem';
-import UIRowItem from '../ui_component/UIRowItem';
-import UITextItem from '../ui_component/UITextItem';
-import UIImageItem from '../ui_component/UIImageItem';
-import UIBase64ImageItem from '../ui_component/UIBase64ImageItem';
+import { UIColumnItem } from '../ui_component/UIColumnItem';
+import { UIRowItem } from '../ui_component/UIRowItem';
+import { UITextItem } from '../ui_component/UITextItem';
+import { UIImageItem } from '../ui_component/UIImageItem';
+import { UIBase64ImageItem } from '../ui_component/UIBase64ImageItem';
 import type { UIBasicItem } from '../ui_component/UIItem';
 import React from 'react';
 
@@ -27,7 +27,7 @@ type InterfaceProps = {
 /**
  * Component for showing floating UI.
  */
-export default function InterfaceComponent(props: InterfaceProps) {
+export function InterfaceComponent(props: InterfaceProps) {
   const [components, setComponents] = useState<ReactNode>();
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -39,7 +39,7 @@ export default function InterfaceComponent(props: InterfaceProps) {
       props.interfaceModel.rootComponent?.getComponent(new Vector3(0), () => {
         setWidth(props.interfaceModel.rootComponent?.getWidth() ?? 0);
         setHeight(props.interfaceModel.rootComponent?.getHeight() ?? 0);
-      }),
+      })
     );
   }, [props.interfaceModel.rootComponent]);
 
@@ -86,7 +86,7 @@ export function parseJsonInterface(uiJson: any) {
     paddingRight,
     paddingTop,
     paddingBottom,
-    parseJsonInterface,
+    parseJsonInterface
   );
   if (columnItem) {
     return columnItem as UIBasicItem;
@@ -98,7 +98,7 @@ export function parseJsonInterface(uiJson: any) {
     paddingRight,
     paddingTop,
     paddingBottom,
-    parseJsonInterface,
+    parseJsonInterface
   );
   if (rowItem) {
     return rowItem as UIBasicItem;
@@ -109,7 +109,7 @@ export function parseJsonInterface(uiJson: any) {
     paddingLeft,
     paddingRight,
     paddingTop,
-    paddingBottom,
+    paddingBottom
   );
   if (textItem) {
     return textItem as UIBasicItem;
@@ -120,7 +120,7 @@ export function parseJsonInterface(uiJson: any) {
     paddingLeft,
     paddingRight,
     paddingTop,
-    paddingBottom,
+    paddingBottom
   );
   if (imageItem) {
     return imageItem as UIBasicItem;
@@ -131,7 +131,7 @@ export function parseJsonInterface(uiJson: any) {
     paddingLeft,
     paddingRight,
     paddingTop,
-    paddingBottom,
+    paddingBottom
   );
   if (base64ImageItem) {
     return base64ImageItem as UIBasicItem;

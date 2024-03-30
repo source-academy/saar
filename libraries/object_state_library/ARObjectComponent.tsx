@@ -18,11 +18,11 @@ import {
 import { type Mesh, Vector3 } from 'three';
 import { useFrame } from '@react-three/fiber';
 import ErrorBoundary from './ErrorBoundary';
-import GltfComponent from './model_components/GltfComponent';
-import ShapeComponent from './model_components/ShapeComponent';
+import { GltfComponent } from './model_components/GltfComponent';
+import { ShapeComponent } from './model_components/ShapeComponent';
 import { useSpring, type SpringValue } from '@react-spring/three';
-import LightComponent from './model_components/LightComponent';
-import InterfaceComponent from './model_components/InterfaceComponent';
+import { LightComponent } from './model_components/LightComponent';
+import { InterfaceComponent } from './model_components/InterfaceComponent';
 import { vector3ToArray } from './Misc';
 import React from 'react';
 
@@ -42,7 +42,7 @@ type SpringProps = {
  * Component for showing a single AR object.
  * Use translatePosition and translateRotation if callibration is required.
  */
-export default function ARObjectComponent(props: Props) {
+export function ARObjectComponent(props: Props) {
   const ref = useRef<Mesh>(null);
   const [showComponent, setShowComponent] = useState(false);
   const [targetPosition, setTargetPosition] = useState(props.arObject.position);
@@ -66,14 +66,14 @@ export default function ARObjectComponent(props: Props) {
       props.arObject,
       ref,
       targetPosition,
-      setTargetPosition,
+      setTargetPosition
     );
     const userPosition = props.getUserPosition();
     handleVisibility(
       props.arObject,
       currentPosition,
       userPosition,
-      setShowComponent,
+      setShowComponent
     );
     handleRotation(props.arObject, currentPosition, userPosition, ref, delta);
   });
@@ -114,7 +114,7 @@ function updatePosition(
   arObject: ARObject,
   ref: MutableRefObject<Mesh | null>,
   targetPosition: Vector3,
-  setTargetPosition: React.Dispatch<React.SetStateAction<Vector3>>,
+  setTargetPosition: React.Dispatch<React.SetStateAction<Vector3>>
 ) {
   let position = arObject.position.clone();
   const movement = arObject.behaviours.movement;
@@ -177,7 +177,7 @@ function handleVisibility(
   arObject: ARObject,
   position: Vector3,
   userPosition: Vector3,
-  setShowComponent: React.Dispatch<React.SetStateAction<boolean>>,
+  setShowComponent: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   const behaviour = arObject.behaviours.render ?? new RenderWithinDistance(5);
   if (behaviour instanceof RenderWithinDistance) {
@@ -200,7 +200,7 @@ function handleRotation(
   position: Vector3,
   userPosition: Vector3,
   ref: MutableRefObject<Mesh | null>,
-  delta: number,
+  delta: number
 ) {
   const rotation = arObject.behaviours.rotation;
   const mesh = ref.current;
@@ -208,7 +208,7 @@ function handleRotation(
   if (rotation instanceof RotateToUser) {
     mesh.rotation.y = Math.atan2(
       userPosition.x - position.x,
-      userPosition.z - position.z,
+      userPosition.z - position.z
     );
   } else if (rotation instanceof RotateAroundY) {
     mesh.rotation.y += delta;

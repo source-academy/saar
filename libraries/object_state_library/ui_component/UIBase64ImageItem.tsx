@@ -21,7 +21,7 @@ const BASE64_IMAGE_UI_TYPE = 'UIBase64ImageItem';
 /**
  * Subcomponent for InterfaceComponent that can display a Base64 encoded image.
  */
-export default class UIBase64ImageItem extends UIBasicItem {
+export class UIBase64ImageItem extends UIBasicItem {
   base64: string;
   imageWidth: number;
   imageHeight: number;
@@ -39,7 +39,7 @@ export default class UIBase64ImageItem extends UIBasicItem {
     paddingLeft: number | undefined,
     paddingRight: number | undefined,
     paddingTop: number | undefined,
-    paddingBottom: number | undefined,
+    paddingBottom: number | undefined
   ) {
     if (!uiJson || uiJson.type !== BASE64_IMAGE_UI_TYPE) return undefined;
     const base64 = uiJson.base64;

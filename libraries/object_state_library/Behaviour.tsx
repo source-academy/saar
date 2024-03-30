@@ -50,30 +50,10 @@ export class ShapeModel implements ModelClass {
   material: Material | Material[] | undefined;
   constructor(
     geometry: BufferGeometry<NormalBufferAttributes> | undefined,
-    material: Material | Material[] | undefined,
+    material: Material | Material[] | undefined
   ) {
     this.geometry = geometry;
     this.material = material;
-  }
-}
-
-export class TextModel implements ModelClass {
-  text: string;
-  width: number;
-  constructor(text: string, width: number) {
-    this.text = text;
-    this.width = width;
-  }
-}
-
-export class ImageModel implements ModelClass {
-  src: string;
-  width: number;
-  height: number;
-  constructor(src: string, width: number, height: number) {
-    this.src = src;
-    this.width = width;
-    this.height = height;
   }
 }
 
@@ -263,7 +243,7 @@ export class PathMovement extends MovementClass {
   constructor(
     path: PathItem[],
     startTime?: number,
-    getCurrentTime?: () => number,
+    getCurrentTime?: () => number
   ) {
     super();
     this.path = path;
@@ -300,7 +280,7 @@ export class PathMovement extends MovementClass {
       }
       let ratio = Math.min(
         Math.max(0, currentFrame / (currentItem.duration * 1000)),
-        1,
+        1
       );
       switch (currentItem.style) {
         case MovementStyle.SlowToFast: {
@@ -349,7 +329,7 @@ export class OrbitMovement extends MovementClass {
     radius: number,
     duration: number,
     startTime?: number,
-    getCurrentTime?: () => number,
+    getCurrentTime?: () => number
   ) {
     super();
     this.radius = radius;
@@ -374,7 +354,7 @@ export class OrbitMovement extends MovementClass {
       (this.getCurrentTime() - this.startTime) % (this.duration * 1000);
     const ratio = Math.min(
       Math.max(0, currentFrame / (this.duration * 1000)),
-      1,
+      1
     );
     const angle = ratio * Math.PI * 2;
     const x = position.x + this.radius * Math.sin(angle);

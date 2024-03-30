@@ -16,7 +16,7 @@ type ShapeProps = {
 /**
  * Component for showing a Three.js shape.
  */
-export default function ShapeComponent(props: ShapeProps) {
+export function ShapeComponent(props: ShapeProps) {
   return (
     <animated.mesh ref={props.meshRef} position={props.springPosition}>
       <mesh

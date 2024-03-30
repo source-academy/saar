@@ -16,7 +16,7 @@ const IMAGE_UI_TYPE = 'UIImageItem';
 /**
  * Subcomponent for InterfaceComponent that can display an image from a link.
  */
-export default class UIImageItem extends UIBasicItem {
+export class UIImageItem extends UIBasicItem {
   src: string;
   imageWidth: number;
   imageHeight: number;
@@ -34,7 +34,7 @@ export default class UIImageItem extends UIBasicItem {
     paddingLeft: number | undefined,
     paddingRight: number | undefined,
     paddingTop: number | undefined,
-    paddingBottom: number | undefined,
+    paddingBottom: number | undefined
   ) {
     if (!uiJson || uiJson.type !== IMAGE_UI_TYPE) return undefined;
     const src = uiJson.src;

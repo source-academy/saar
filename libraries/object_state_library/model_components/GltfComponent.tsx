@@ -27,7 +27,7 @@ type GltfProps = {
 /**
  * Component for showing GLTF model.
  */
-export default function GltfComponent(props: GltfProps) {
+export function GltfComponent(props: GltfProps) {
   const model = useGLTF(props.gltfModel.resource);
   const [scene, setScene] = useState<Object3D<Object3DEventMap>>();
   const mixer = useRef<AnimationMixer>();
@@ -44,7 +44,7 @@ export default function GltfComponent(props: GltfProps) {
       // Creates a function that starts an animation in the GLTF model asset.
       props.gltfModel.callAnimation = (actionName: string) => {
         const selectedAction = model.animations.find(
-          (item) => item.name === actionName,
+          (item) => item.name === actionName
         );
         if (!selectedAction) return;
         mixer.current?.stopAllAction();

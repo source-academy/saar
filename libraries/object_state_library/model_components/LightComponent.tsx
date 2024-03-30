@@ -15,7 +15,7 @@ type LightProps = {
 /**
  * Component for a light source shining from a particular positon.
  */
-export default function LightComponent(props: LightProps) {
+export function LightComponent(props: LightProps) {
   return (
     <animated.mesh ref={props.meshRef} position={props.springPosition}>
       <pointLight intensity={props.lightModel.intensity} />

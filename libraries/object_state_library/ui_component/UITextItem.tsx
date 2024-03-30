@@ -20,7 +20,7 @@ const TEXT_UI_TYPE = 'UITextItem';
 /**
  * Subcomponent for InterfaceComponent that can display text.
  */
-export default class UITextItem extends UIBasicItem {
+export class UITextItem extends UIBasicItem {
   text: string;
   textSize: number;
   textWidth: number;
@@ -53,7 +53,7 @@ export default class UITextItem extends UIBasicItem {
     paddingLeft: number | undefined,
     paddingRight: number | undefined,
     paddingTop: number | undefined,
-    paddingBottom: number | undefined,
+    paddingBottom: number | undefined
   ) {
     if (!uiJson || uiJson.type !== TEXT_UI_TYPE) return undefined;
     const text = uiJson.text;
