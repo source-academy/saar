@@ -6,12 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useControls = exports.ControlsContext = void 0;
 const fiber_1 = require("@react-three/fiber");
 const react_1 = require("react");
-const three_1 = require("three");
+const Quaternion_1 = require("three/src/math/Quaternion");
+const Vector3_1 = require("three/src/math/Vector3");
 const RayCast_1 = require("./RayCast");
 const xr_1 = require("@react-three/xr");
 const react_2 = __importDefault(require("react"));
 const Context = (0, react_1.createContext)({
-    hitPointPosition: new three_1.Vector3(),
+    hitPointPosition: new Vector3_1.Vector3(),
     objectInSight: (0, react_1.createRef)(),
     setObjectInSightCallback() { },
 });
@@ -39,11 +40,11 @@ const Context = (0, react_1.createContext)({
 function ControlsContext(props) {
     const three = (0, fiber_1.useThree)();
     // Hit Test
-    const [hitPointPosition, setHitPointPosition] = (0, react_1.useState)(new three_1.Vector3());
+    const [hitPointPosition, setHitPointPosition] = (0, react_1.useState)(new Vector3_1.Vector3());
     (0, xr_1.useHitTest)((hitMatrix, _) => {
-        const newPosition = new three_1.Vector3();
-        const newRotation = new three_1.Quaternion();
-        const newScale = new three_1.Vector3();
+        const newPosition = new Vector3_1.Vector3();
+        const newRotation = new Quaternion_1.Quaternion();
+        const newScale = new Vector3_1.Vector3();
         hitMatrix.decompose(newPosition, newRotation, newScale);
         setHitPointPosition(newPosition);
     });

@@ -1,4 +1,5 @@
-import { type Mesh, Vector3 } from 'three';
+import { type Mesh } from 'three/src/objects/Mesh';
+import { Vector3 } from 'three/src/math/Vector3';
 import React from 'react';
 type ContextType = {
     hitPointPosition: Vector3;

@@ -7,7 +7,7 @@ exports.parseJsonInterface = exports.InterfaceComponent = void 0;
 const three_1 = require("@react-spring/three");
 const react_1 = require("react");
 const Outline_1 = require("../Outline");
-const three_2 = require("three");
+const Vector3_1 = require("three/src/math/Vector3");
 const UIColumnItem_1 = require("../ui_component/UIColumnItem");
 const UIRowItem_1 = require("../ui_component/UIRowItem");
 const UITextItem_1 = require("../ui_component/UITextItem");
@@ -25,14 +25,14 @@ function InterfaceComponent(props) {
         var _a, _b, _c, _d, _e;
         setWidth((_b = (_a = props.interfaceModel.rootComponent) === null || _a === void 0 ? void 0 : _a.getWidth()) !== null && _b !== void 0 ? _b : 0);
         setHeight((_d = (_c = props.interfaceModel.rootComponent) === null || _c === void 0 ? void 0 : _c.getHeight()) !== null && _d !== void 0 ? _d : 0);
-        setComponents((_e = props.interfaceModel.rootComponent) === null || _e === void 0 ? void 0 : _e.getComponent(new three_2.Vector3(0), () => {
+        setComponents((_e = props.interfaceModel.rootComponent) === null || _e === void 0 ? void 0 : _e.getComponent(new Vector3_1.Vector3(0), () => {
             var _a, _b, _c, _d;
             setWidth((_b = (_a = props.interfaceModel.rootComponent) === null || _a === void 0 ? void 0 : _a.getWidth()) !== null && _b !== void 0 ? _b : 0);
             setHeight((_d = (_c = props.interfaceModel.rootComponent) === null || _c === void 0 ? void 0 : _c.getHeight()) !== null && _d !== void 0 ? _d : 0);
         }));
     }, [props.interfaceModel.rootComponent]);
     return (react_2.default.createElement(three_1.animated.mesh, { ref: props.meshRef, position: props.springPosition },
-        react_2.default.createElement("mesh", { position: new three_2.Vector3(0, 0, -1 / 1000) },
+        react_2.default.createElement("mesh", { position: new Vector3_1.Vector3(0, 0, -1 / 1000) },
             react_2.default.createElement(Outline_1.Outline, { isSelected: props.isSelected, isInFront: props.isInFront }),
             react_2.default.createElement("boxGeometry", { args: [width + 0.01, height + 0.01, 0] }),
             react_2.default.createElement("meshStandardMaterial", { transparent: true, opacity: 0 })),

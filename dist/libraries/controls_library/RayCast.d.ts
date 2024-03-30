@@ -1,4 +1,6 @@
-import { type Camera, Mesh, Object3D, type Object3DEventMap } from 'three';
+import { type Camera } from 'three/src/cameras/Camera';
+import { Mesh } from 'three/src/objects/Mesh';
+import { type Object3DEventMap, Object3D } from 'three/src/core/Object3D';
 /**
  * Returns first object in the middle of the screen, if any.
  *

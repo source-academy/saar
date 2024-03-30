@@ -6,13 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.usePlayArea = exports.PlayAreaContext = void 0;
 const fiber_1 = require("@react-three/fiber");
 const react_1 = require("react");
-const three_1 = require("three");
+const Euler_1 = require("three/src/math/Euler");
+const Vector3_1 = require("three/src/math/Vector3");
 const react_2 = __importDefault(require("react"));
 const Context = (0, react_1.createContext)({
     setCameraAsOrigin() { },
     setPositionAsOrigin() { },
-    getCameraPosition: () => new three_1.Vector3(),
-    getCameraRotation: () => new three_1.Euler(),
+    getCameraPosition: () => new Vector3_1.Vector3(),
+    getCameraRotation: () => new Euler_1.Euler(),
 });
 /**
  * Parent component with play area context.
@@ -26,7 +27,7 @@ const Context = (0, react_1.createContext)({
  * Components within it can call 'usePlayArea' to obtain this context.
  */
 function PlayAreaContext(props) {
-    const [origin, setOrigin] = (0, react_1.useState)(new three_1.Vector3(0, 0, 0));
+    const [origin, setOrigin] = (0, react_1.useState)(new Vector3_1.Vector3(0, 0, 0));
     const [angle, setAngle] = (0, react_1.useState)(0);
     const three = (0, fiber_1.useThree)();
     const DEFAULT_HEIGHT = 1;
@@ -35,7 +36,7 @@ function PlayAreaContext(props) {
      */
     function setCameraAsOrigin() {
         const cameraPosition = three.camera.position;
-        setPositionAsOrigin(new three_1.Vector3(cameraPosition.x, cameraPosition.y - DEFAULT_HEIGHT, cameraPosition.z), three.camera.rotation);
+        setPositionAsOrigin(new Vector3_1.Vector3(cameraPosition.x, cameraPosition.y - DEFAULT_HEIGHT, cameraPosition.z), three.camera.rotation);
     }
     /**
      * Sets the origin position and angle for calibration.
@@ -100,8 +101,8 @@ function PlayAreaContext(props) {
         const x = position.x - origin.x;
         const y = position.y - origin.y;
         const z = position.z - origin.z;
-        const relativePosition = new three_1.Vector3(x, y, z);
-        relativePosition.applyAxisAngle(new three_1.Vector3(0, 1, 0), -angle); // Rotation fixed around vertical axis
+        const relativePosition = new Vector3_1.Vector3(x, y, z);
+        relativePosition.applyAxisAngle(new Vector3_1.Vector3(0, 1, 0), -angle); // Rotation fixed around vertical axis
         return relativePosition;
     }
     /**
@@ -111,10 +112,10 @@ function PlayAreaContext(props) {
      * @returns Rotation relative to the custom origin
      */
     function getRelativeRotation(rotation) {
-        const vector3 = new three_1.Vector3();
+        const vector3 = new Vector3_1.Vector3();
         vector3.setFromEuler(rotation);
-        vector3.applyAxisAngle(new three_1.Vector3(0, 1, 0), -angle);
-        const euler = new three_1.Euler();
+        vector3.applyAxisAngle(new Vector3_1.Vector3(0, 1, 0), -angle);
+        const euler = new Euler_1.Euler();
         euler.setFromVector3(vector3);
         return euler;
     }
@@ -124,7 +125,7 @@ function PlayAreaContext(props) {
             getCameraPosition,
             getCameraRotation,
         } },
-        react_2.default.createElement("group", { position: origin, rotation: new three_1.Euler(0, angle, 0) }, props.children)));
+        react_2.default.createElement("group", { position: origin, rotation: new Euler_1.Euler(0, angle, 0) }, props.children)));
 }
 exports.PlayAreaContext = PlayAreaContext;
 function usePlayArea() {

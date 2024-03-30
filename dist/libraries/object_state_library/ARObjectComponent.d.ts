@@ -1,5 +1,5 @@
 import { type ARObject } from './ARObject';
-import { Vector3 } from 'three';
+import { Vector3 } from 'three/src/math/Vector3';
 import React from 'react';
 type Props = {
     arObject: ARObject;

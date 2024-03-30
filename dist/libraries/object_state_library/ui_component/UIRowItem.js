@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UIRowItem = exports.VerticalAlignment = void 0;
 const react_1 = require("react");
 const UIItem_1 = require("./UIItem");
-const three_1 = require("three");
+const Color_1 = require("three/src/math/Color");
+const Vector3_1 = require("three/src/math/Vector3");
 const react_2 = __importDefault(require("react"));
 var VerticalAlignment;
 (function (VerticalAlignment) {
@@ -136,7 +137,7 @@ function Component(props) {
                 relativeYPosition +=
                     -(componentHeight - childHeight) / 2 - component.paddingBottom;
             }
-            const childPosition = new three_1.Vector3(relativeXPosition, relativeYPosition, 0);
+            const childPosition = new Vector3_1.Vector3(relativeXPosition, relativeYPosition, 0);
             positions.push(childPosition);
         }
         setComponentPositions(positions);
@@ -155,8 +156,8 @@ function Component(props) {
         return react_2.default.createElement("group", { key: `children_${component.id}` }, children);
     }
     return (react_2.default.createElement("mesh", { key: `component_${component.id}`, position: position },
-        react_2.default.createElement("mesh", { position: new three_1.Vector3(0, 0, -component.layer / 1000) },
+        react_2.default.createElement("mesh", { position: new Vector3_1.Vector3(0, 0, -component.layer / 1000) },
             react_2.default.createElement("boxGeometry", { args: [width, height, 0] }),
-            react_2.default.createElement("meshBasicMaterial", { color: new three_1.Color(component.background) })),
+            react_2.default.createElement("meshBasicMaterial", { color: new Color_1.Color(component.background) })),
         react_2.default.createElement(ChildrenComponents, { componentPositions: componentPositions })));
 }

@@ -1,4 +1,4 @@
-import { Vector3 } from 'three';
+import { Vector3 } from 'three/src/math/Vector3';
 import { type Behaviours, type RotationClass, type RenderClass, type MovementClass } from './Behaviour';
 import React from 'react';
 /**

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.vector3ToArray = exports.parseVector3 = void 0;
-const three_1 = require("three");
+const Vector3_1 = require("three/src/math/Vector3");
 /**
  * Converts object to a Vector3.
  *
@@ -15,7 +15,7 @@ function parseVector3(object) {
     const y = object.y;
     const z = object.z;
     if (typeof x === 'number' && typeof y === 'number' && typeof z === 'number') {
-        return new three_1.Vector3(x, y, z);
+        return new Vector3_1.Vector3(x, y, z);
     }
     return undefined;
 }

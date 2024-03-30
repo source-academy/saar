@@ -13,7 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UITextItem = void 0;
-const three_1 = require("three");
+const Color_1 = require("three/src/math/Color");
+const Vector3_1 = require("three/src/math/Vector3");
 const UIItem_1 = require("./UIItem");
 const drei_1 = require("@react-three/drei");
 const react_1 = require("react");
@@ -144,5 +145,5 @@ function Component(props) {
         return 'center';
     }
     return (react_2.default.createElement("mesh", { key: `component_${component.id}`, position: position },
-        react_2.default.createElement(drei_1.Text, { position: new three_1.Vector3(offsetX, 0, 0), ref: ref, fontSize: component.textSize, maxWidth: component.textWidth, textAlign: getTextAlign(component.textAlign), color: new three_1.Color(component.color), overflowWrap: "normal" }, component.text)));
+        react_2.default.createElement(drei_1.Text, { position: new Vector3_1.Vector3(offsetX, 0, 0), ref: ref, fontSize: component.textSize, maxWidth: component.textWidth, textAlign: getTextAlign(component.textAlign), color: new Color_1.Color(component.color), overflowWrap: "normal" }, component.text)));
 }

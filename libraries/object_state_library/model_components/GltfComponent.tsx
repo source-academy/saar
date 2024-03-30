@@ -8,7 +8,8 @@ import {
 } from 'react';
 // eslint-disable-next-line
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils.js';
-import { type Object3D, type Object3DEventMap, AnimationMixer } from 'three';
+import { type Object3D, type Object3DEventMap } from 'three/src/core/Object3D';
+import { AnimationMixer } from 'three/src/animation/AnimationMixer';
 import { type GltfModel } from '../Behaviour';
 import { type ARObject } from '../ARObject';
 import { type SpringValue, animated } from '@react-spring/three';

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Outline = void 0;
 const drei_1 = require("@react-three/drei");
-const three_1 = require("three");
+const Color_1 = require("three/src/math/Color");
 const react_1 = __importDefault(require("react"));
 /**
  * Outline for ARObject.
@@ -14,12 +14,12 @@ const react_1 = __importDefault(require("react"));
 function Outline(props) {
     function getColor() {
         if (props.isSelected && props.isInFront) {
-            return new three_1.Color(0x00ff73);
+            return new Color_1.Color(0x00ff73);
         }
         if (props.isSelected) {
-            return new three_1.Color(0xff5900);
+            return new Color_1.Color(0xff5900);
         }
-        return new three_1.Color(0xffa500);
+        return new Color_1.Color(0xffa500);
     }
     return (react_1.default.createElement(drei_1.Outlines, { visible: props.isInFront || props.isSelected, thickness: 10, color: getColor(), screenspace: true, opacity: 1, transparent: false, angle: 0 }));
 }

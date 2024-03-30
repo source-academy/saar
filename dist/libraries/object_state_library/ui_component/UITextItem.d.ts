@@ -1,4 +1,4 @@
-import { Vector3 } from 'three';
+import { Vector3 } from 'three/src/math/Vector3';
 import { UIBasicItem, type PaddingType } from './UIItem';
 import { HorizontalAlignment } from './UIColumnItem';
 import React from 'react';

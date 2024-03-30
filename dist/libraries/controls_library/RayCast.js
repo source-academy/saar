@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getIntersection = void 0;
-const three_1 = require("three");
+const Group_1 = require("three/src/objects/Group");
+const Mesh_1 = require("three/src/objects/Mesh");
+const Object3D_1 = require("three/src/core/Object3D");
+const Raycaster_1 = require("three/src/core/Raycaster");
+const Vector2_1 = require("three/src/math/Vector2");
 /**
  * Returns first object in the middle of the screen, if any.
  *
@@ -14,8 +18,8 @@ const three_1 = require("three");
  * @param coreObject Parent node containing all objects
  */
 function getIntersection(camera, coreObject) {
-    const raycaster = new three_1.Raycaster();
-    const pointer = new three_1.Vector2(0, 0);
+    const raycaster = new Raycaster_1.Raycaster();
+    const pointer = new Vector2_1.Vector2(0, 0);
     raycaster.setFromCamera(pointer, camera);
     // Get all meshes, including indirect child meshes
     const cascadeChildren = getCascadeMeshs(coreObject.children);
@@ -43,10 +47,10 @@ function getCascadeMeshs(children) {
     while (queue.length > 0) {
         const item = queue.pop();
         if (item) {
-            if (item instanceof three_1.Mesh) {
+            if (item instanceof Mesh_1.Mesh) {
                 cascadeChildren.push(item);
             }
-            else if (item instanceof three_1.Group) {
+            else if (item instanceof Group_1.Group) {
                 queue = queue.concat(item.children);
             }
         }
@@ -62,14 +66,14 @@ function getCascadeMeshs(children) {
 function getTopParent(child, coreObject) {
     let parent = child;
     let lastMesh = child;
-    while (parent.parent instanceof three_1.Object3D &&
+    while (parent.parent instanceof Object3D_1.Object3D &&
         parent.parent.uuid !== coreObject.uuid) {
         parent = parent.parent;
-        if (parent instanceof three_1.Mesh) {
+        if (parent instanceof Mesh_1.Mesh) {
             lastMesh = parent;
         }
     }
-    if (lastMesh instanceof three_1.Mesh) {
+    if (lastMesh instanceof Mesh_1.Mesh) {
         return lastMesh;
     }
     return undefined;

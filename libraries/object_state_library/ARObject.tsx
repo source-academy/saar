@@ -1,9 +1,6 @@
-import {
-  BoxGeometry,
-  MeshStandardMaterial,
-  SphereGeometry,
-  Vector3,
-} from 'three';
+import { MeshStandardMaterial } from 'three/src/materials/MeshStandardMaterial';
+import { BoxGeometry, SphereGeometry } from 'three';
+import { Vector3 } from 'three/src/math/Vector3';
 import {
   type Behaviours,
   LightModel,

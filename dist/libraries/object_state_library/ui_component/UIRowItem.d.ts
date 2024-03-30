@@ -1,5 +1,5 @@
 import { type UIBasicItem, UILayoutItem, type PaddingType } from './UIItem';
-import { Vector3 } from 'three';
+import { Vector3 } from 'three/src/math/Vector3';
 import React from 'react';
 export declare enum VerticalAlignment {
     Top = 0,

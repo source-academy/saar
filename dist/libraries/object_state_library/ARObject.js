@@ -4,7 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LightObject = exports.UIObject = exports.GltfObject = exports.SphereObject = exports.CubeObject = exports.ARObject = void 0;
+const MeshStandardMaterial_1 = require("three/src/materials/MeshStandardMaterial");
 const three_1 = require("three");
+const Vector3_1 = require("three/src/math/Vector3");
 const Behaviour_1 = require("./Behaviour");
 const ARObjectComponent_1 = require("./ARObjectComponent");
 const Misc_1 = require("./Misc");
@@ -66,7 +68,7 @@ const CUBE_OBJECT_TYPE = 'CubeObject';
 class CubeObject extends ARObject {
     constructor(id, position, width, height, depth, color, render, rotation, movement, onSelect) {
         super(id, position, {
-            model: new Behaviour_1.ShapeModel(new three_1.BoxGeometry(width, height, depth), new three_1.MeshStandardMaterial({ color })),
+            model: new Behaviour_1.ShapeModel(new three_1.BoxGeometry(width, height, depth), new MeshStandardMaterial_1.MeshStandardMaterial({ color })),
             render,
             rotation,
             movement,
@@ -91,7 +93,7 @@ class CubeObject extends ARObject {
         const depth = object.depth;
         const color = object.color;
         if (typeof id === 'string' &&
-            position instanceof three_1.Vector3 &&
+            position instanceof Vector3_1.Vector3 &&
             typeof width === 'number' &&
             typeof height === 'number' &&
             typeof depth === 'number' &&
@@ -109,7 +111,7 @@ const SPHERE_OBJECT_TYPE = 'SphereObject';
 class SphereObject extends ARObject {
     constructor(id, position, radius, color, render, rotation, movement, onSelect) {
         super(id, position, {
-            model: new Behaviour_1.ShapeModel(new three_1.SphereGeometry(radius, 20, 20), new three_1.MeshStandardMaterial({ color })),
+            model: new Behaviour_1.ShapeModel(new three_1.SphereGeometry(radius, 20, 20), new MeshStandardMaterial_1.MeshStandardMaterial({ color })),
             render,
             rotation,
             movement,
@@ -130,7 +132,7 @@ class SphereObject extends ARObject {
         const radius = object.radius;
         const color = object.color;
         if (typeof id === 'string' &&
-            position instanceof three_1.Vector3 &&
+            position instanceof Vector3_1.Vector3 &&
             typeof radius === 'number' &&
             typeof color === 'number') {
             return new SphereObject(id, position, radius, color, render, rotation, movement, onSelect);
@@ -167,7 +169,7 @@ class GltfObject extends ARObject {
         const src = object.src;
         const scale = object.scale;
         if (typeof id === 'string' &&
-            position instanceof three_1.Vector3 &&
+            position instanceof Vector3_1.Vector3 &&
             typeof src === 'string' &&
             typeof scale === 'number') {
             return new GltfObject(id, position, src, scale, render, rotation, movement, onSelect);
@@ -202,7 +204,7 @@ class UIObject extends ARObject {
         const movement = (0, Behaviour_1.parseMovement)((_c = object.behaviours) === null || _c === void 0 ? void 0 : _c.movement, getCurrentTime);
         const uiJson = (0, InterfaceComponent_1.parseJsonInterface)(object.uiJson);
         if (typeof id === 'string' &&
-            position instanceof three_1.Vector3 &&
+            position instanceof Vector3_1.Vector3 &&
             uiJson !== undefined) {
             return new UIObject(id, position, uiJson, render, rotation, movement, onSelect);
         }
@@ -230,7 +232,7 @@ class LightObject extends ARObject {
         const position = (0, Misc_1.parseVector3)(object.position);
         const intensity = object.intensity;
         if (typeof id === 'string' &&
-            position instanceof three_1.Vector3 &&
+            position instanceof Vector3_1.Vector3 &&
             typeof intensity === 'number') {
             return new LightObject(id, position, intensity);
         }

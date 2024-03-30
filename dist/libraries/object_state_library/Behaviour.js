@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseMovement = exports.SpringMovement = exports.OrbitMovement = exports.PathMovement = exports.MovementStyle = exports.MovementClass = exports.parseRotation = exports.FixRotation = exports.RotateAroundY = exports.RotateToUser = exports.RotationClass = exports.parseRender = exports.AlwaysRender = exports.RenderWithinDistance = exports.RenderClass = exports.LightModel = exports.InterfaceModel = exports.ShapeModel = exports.GltfModel = exports.ModelClass = void 0;
-const three_1 = require("three");
+const Vector3_1 = require("three/src/math/Vector3");
 const Misc_1 = require("./Misc");
 // Model
 /**
@@ -178,8 +178,8 @@ function parsePathItems(path) {
         const start = (0, Misc_1.parseVector3)(item.start);
         const end = (0, Misc_1.parseVector3)(item.end);
         const duration = item.duration;
-        if (start instanceof three_1.Vector3 &&
-            end instanceof three_1.Vector3 &&
+        if (start instanceof Vector3_1.Vector3 &&
+            end instanceof Vector3_1.Vector3 &&
             (duration === undefined || typeof duration === 'number')) {
             let movementStyle = MovementStyle.Linear;
             if (item.style === MovementStyle.FastToSlow) {
@@ -263,7 +263,7 @@ class PathMovement extends MovementClass {
             const z = position.z +
                 currentItem.start.z +
                 ratio * (currentItem.end.z - currentItem.start.z);
-            return new three_1.Vector3(x, y, z);
+            return new Vector3_1.Vector3(x, y, z);
         }
         return position;
     }
@@ -306,7 +306,7 @@ class OrbitMovement extends MovementClass {
         const x = position.x + this.radius * Math.sin(angle);
         const y = position.y;
         const z = position.z + this.radius * Math.cos(angle);
-        return new three_1.Vector3(x, y, z);
+        return new Vector3_1.Vector3(x, y, z);
     }
 }
 exports.OrbitMovement = OrbitMovement;

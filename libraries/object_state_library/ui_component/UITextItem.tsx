@@ -1,4 +1,6 @@
-import { Color, type Mesh, Vector3 } from 'three';
+import { type Mesh } from 'three/src/objects/Mesh';
+import { Color } from 'three/src/math/Color';
+import { Vector3 } from 'three/src/math/Vector3';
 import { UIBasicItem, type PaddingType } from './UIItem';
 import { Text as ThreeText } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';

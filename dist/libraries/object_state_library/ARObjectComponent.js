@@ -7,12 +7,12 @@ exports.ARObjectComponent = void 0;
 const xr_1 = require("@react-three/xr");
 const react_1 = require("react");
 const Behaviour_1 = require("./Behaviour");
-const three_1 = require("three");
+const Vector3_1 = require("three/src/math/Vector3");
 const fiber_1 = require("@react-three/fiber");
 const ErrorBoundary_1 = __importDefault(require("./ErrorBoundary"));
 const GltfComponent_1 = require("./model_components/GltfComponent");
 const ShapeComponent_1 = require("./model_components/ShapeComponent");
-const three_2 = require("@react-spring/three");
+const three_1 = require("@react-spring/three");
 const LightComponent_1 = require("./model_components/LightComponent");
 const InterfaceComponent_1 = require("./model_components/InterfaceComponent");
 const Misc_1 = require("./Misc");
@@ -25,7 +25,7 @@ function ARObjectComponent(props) {
     const ref = (0, react_1.useRef)(null);
     const [showComponent, setShowComponent] = (0, react_1.useState)(false);
     const [targetPosition, setTargetPosition] = (0, react_1.useState)(props.arObject.position);
-    const spring = (0, three_2.useSpring)({
+    const spring = (0, three_1.useSpring)({
         position: (0, Misc_1.vector3ToArray)(targetPosition),
     });
     const [isInFront, setInFront] = (0, react_1.useState)(false);
@@ -115,7 +115,7 @@ function handleVisibility(arObject, position, userPosition, setShowComponent) {
     var _a;
     const behaviour = (_a = arObject.behaviours.render) !== null && _a !== void 0 ? _a : new Behaviour_1.RenderWithinDistance(5);
     if (behaviour instanceof Behaviour_1.RenderWithinDistance) {
-        const distanceVector = new three_1.Vector3(0, 0, 0);
+        const distanceVector = new Vector3_1.Vector3(0, 0, 0);
         distanceVector.subVectors(position, userPosition);
         const distance = distanceVector.length();
         setShowComponent(distance <= behaviour.distance);

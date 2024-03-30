@@ -4,7 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UIBase64ImageItem = void 0;
-const three_1 = require("three");
+const MeshLambertMaterial_1 = require("three/src/materials/MeshLambertMaterial");
+const Texture_1 = require("three/src/textures/Texture");
 const UIItem_1 = require("./UIItem");
 const react_1 = require("react");
 const react_2 = __importDefault(require("react"));
@@ -54,12 +55,12 @@ function Component(props) {
         // Loads the image onto a texture, then use it on a plane
         const image = new Image();
         image.src = props.component.base64;
-        const texture = new three_1.Texture();
+        const texture = new Texture_1.Texture();
         texture.image = image;
         image.onload = () => {
             texture.needsUpdate = true;
         };
-        const newMaterial = new three_1.MeshLambertMaterial({ map: texture });
+        const newMaterial = new MeshLambertMaterial_1.MeshLambertMaterial({ map: texture });
         setMaterial(newMaterial);
     }, [props.component.base64]);
     return (react_2.default.createElement("mesh", { key: `component_${props.component.id}`, position: props.position, material: material },

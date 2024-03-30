@@ -31,8 +31,8 @@ const fiber_1 = require("@react-three/fiber");
 const react_1 = require("react");
 // eslint-disable-next-line
 const SkeletonUtils = __importStar(require("three/examples/jsm/utils/SkeletonUtils.js"));
-const three_1 = require("three");
-const three_2 = require("@react-spring/three");
+const AnimationMixer_1 = require("three/src/animation/AnimationMixer");
+const three_1 = require("@react-spring/three");
 const drei_1 = require("@react-three/drei");
 const react_2 = __importDefault(require("react"));
 /**
@@ -46,7 +46,7 @@ function GltfComponent(props) {
         // Need to clone to prevent bug when the same GLTF model is used in multiple objects.
         const clonedScene = SkeletonUtils.clone(model.scene);
         setScene(clonedScene);
-        mixer.current = new three_1.AnimationMixer(clonedScene);
+        mixer.current = new AnimationMixer_1.AnimationMixer(clonedScene);
     }, [model.scene]);
     (0, react_1.useEffect)(() => {
         if (model.animations.length > 0) {
@@ -67,7 +67,7 @@ function GltfComponent(props) {
         (_a = mixer.current) === null || _a === void 0 ? void 0 : _a.update(delta);
     });
     // Issue with excessively deep animated mesh https://github.com/pmndrs/react-spring/issues/1515
-    return (react_2.default.createElement(three_2.animated.mesh, { position: props.springPosition, scale: props.gltfModel.scale, ref: props.meshRef },
+    return (react_2.default.createElement(three_1.animated.mesh, { position: props.springPosition, scale: props.gltfModel.scale, ref: props.meshRef },
         react_2.default.createElement(react_1.Suspense, { fallback: null }, scene ? react_2.default.createElement("primitive", { object: scene }) : null),
         props.children));
 }

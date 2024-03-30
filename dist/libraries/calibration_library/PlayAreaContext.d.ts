@@ -1,5 +1,6 @@
 /// <reference types="react" />
-import { Vector3, Euler } from 'three';
+import { Euler } from 'three/src/math/Euler';
+import { Vector3 } from 'three/src/math/Vector3';
 type ContextType = {
     setCameraAsOrigin: () => void;
     setPositionAsOrigin: (origin: Vector3, cameraRotation: Euler) => void;

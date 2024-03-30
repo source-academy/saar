@@ -1,5 +1,5 @@
 import { Outlines } from '@react-three/drei';
-import { Color } from 'three';
+import { Color } from 'three/src/math/Color';
 import React from 'react';
 
 type Props = {

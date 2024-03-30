@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { type UIBasicItem, UILayoutItem, type PaddingType } from './UIItem';
-import { Color, Vector3 } from 'three';
+import { Color } from 'three/src/math/Color';
+import { Vector3 } from 'three/src/math/Vector3';
 import React from 'react';
 
 export enum HorizontalAlignment {

@@ -1,12 +1,9 @@
-import {
-  type Camera,
-  Group,
-  Mesh,
-  Object3D,
-  type Object3DEventMap,
-  Raycaster,
-  Vector2,
-} from 'three';
+import { type Camera } from 'three/src/cameras/Camera';
+import { Group } from 'three/src/objects/Group';
+import { Mesh } from 'three/src/objects/Mesh';
+import { type Object3DEventMap, Object3D } from 'three/src/core/Object3D';
+import { Raycaster } from 'three/src/core/Raycaster';
+import { Vector2 } from 'three/src/math/Vector2';
 
 /**
  * Returns first object in the middle of the screen, if any.

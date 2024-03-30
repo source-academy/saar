@@ -1,6 +1,8 @@
 import { useFrame, useThree } from '@react-three/fiber';
 import { createContext, createRef, useContext, useRef, useState } from 'react';
-import { type Mesh, Quaternion, Vector3 } from 'three';
+import { type Mesh } from 'three/src/objects/Mesh';
+import { Quaternion } from 'three/src/math/Quaternion';
+import { Vector3 } from 'three/src/math/Vector3';
 import { getIntersection } from './RayCast';
 import { useHitTest } from '@react-three/xr';
 import React from 'react';

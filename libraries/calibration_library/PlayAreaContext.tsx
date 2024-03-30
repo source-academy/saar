@@ -1,6 +1,7 @@
 import { useThree } from '@react-three/fiber';
 import { createContext, useContext, useState } from 'react';
-import { Vector3, Euler } from 'three';
+import { Euler } from 'three/src/math/Euler';
+import { Vector3 } from 'three/src/math/Vector3';
 import React from 'react';
 
 type ContextType = {
