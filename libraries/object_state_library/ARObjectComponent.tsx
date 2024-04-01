@@ -16,7 +16,7 @@ import {
   SpringMovement,
 } from './Behaviour';
 import { type Mesh } from 'three/src/objects/Mesh';
-import { Vector3 } from 'three/src/math/Vector3';
+import { Vector3 } from '../misc';
 import { useFrame } from '@react-three/fiber';
 import ErrorBoundary from './ErrorBoundary';
 import { GltfComponent } from './model_components/GltfComponent';

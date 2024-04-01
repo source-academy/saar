@@ -2,7 +2,6 @@ import { type SpringValue, animated } from '@react-spring/three';
 import { type InterfaceModel } from '../Behaviour';
 import { useEffect, type MutableRefObject, useState } from 'react';
 import { Outline } from '../Outline';
-import { Vector3 } from 'three/src/math/Vector3';
 import { UIColumnItem } from '../ui_component/UIColumnItem';
 import { UIRowItem } from '../ui_component/UIRowItem';
 import { UITextItem } from '../ui_component/UITextItem';
@@ -10,6 +9,7 @@ import { UIImageItem } from '../ui_component/UIImageItem';
 import { UIBase64ImageItem } from '../ui_component/UIBase64ImageItem';
 import type { UIBasicItem } from '../ui_component/UIItem';
 import React from 'react';
+import { Vector3 } from '../../misc';
 
 type InterfaceProps = {
   interfaceModel: InterfaceModel;

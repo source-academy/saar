@@ -1,7 +1,7 @@
 import { MeshLambertMaterial } from 'three/src/materials/MeshLambertMaterial';
 import { type Material } from 'three/src/materials/Material';
 import { Texture } from 'three/src/textures/Texture';
-import { type Vector3 } from 'three/src/math/Vector3';
+import { type Vector3 } from '../../misc';
 import { UIBasicItem, type PaddingType } from './UIItem';
 import { useEffect, useState } from 'react';
 import React from 'react';

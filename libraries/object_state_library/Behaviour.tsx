@@ -3,7 +3,7 @@ import {
   type NormalBufferAttributes,
 } from 'three/src/core/BufferGeometry';
 import { type Material } from 'three/src/materials/Material';
-import { Vector3 } from 'three/src/math/Vector3';
+import { Vector3 } from '../misc';
 import { type UIBasicItem } from './ui_component/UIItem';
 import { parseVector3 } from './Misc';
 

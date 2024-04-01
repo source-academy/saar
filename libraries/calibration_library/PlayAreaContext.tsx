@@ -1,8 +1,8 @@
 import { useThree } from '@react-three/fiber';
 import { createContext, useContext, useState } from 'react';
 import { Euler } from 'three/src/math/Euler';
-import { Vector3 } from 'three/src/math/Vector3';
 import React from 'react';
+import { Vector3 } from '../misc';
 
 type ContextType = {
   setCameraAsOrigin: () => void;
