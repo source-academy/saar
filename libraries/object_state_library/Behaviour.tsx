@@ -57,26 +57,6 @@ export class ShapeModel implements ModelClass {
   }
 }
 
-export class TextModel implements ModelClass {
-  text: string;
-  width: number;
-  constructor(text: string, width: number) {
-    this.text = text;
-    this.width = width;
-  }
-}
-
-export class ImageModel implements ModelClass {
-  src: string;
-  width: number;
-  height: number;
-  constructor(src: string, width: number, height: number) {
-    this.src = src;
-    this.width = width;
-    this.height = height;
-  }
-}
-
 export class InterfaceModel implements ModelClass {
   rootComponent: UIBasicItem | undefined;
   constructor(rootComponent: any) {
