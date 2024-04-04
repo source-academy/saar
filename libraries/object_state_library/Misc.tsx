@@ -6,7 +6,7 @@ import { Vector3 } from 'three';
  * @param object Object to parse
  * @returns Vector3 if successful, undefined if failed
  */
-export function parseVector3(object: any) {
+export function parseVector3(object: any): Vector3 | undefined {
   if (!object) return undefined;
   const x = object.x;
   const y = object.y;
@@ -23,6 +23,6 @@ export function parseVector3(object: any) {
  * @param vector Vector3 to convert
  * @returns Vector in array form
  */
-export function vector3ToArray(vector: Vector3) {
+export function vector3ToArray(vector: Vector3): [number, number, number] {
   return [vector.x, vector.y, vector.z] as [number, number, number];
 }
