@@ -1,9 +1,12 @@
-import { type Camera } from 'three/src/cameras/Camera';
-import { Group } from 'three/src/objects/Group';
-import { Mesh } from 'three/src/objects/Mesh';
-import { type Object3DEventMap, Object3D } from 'three/src/core/Object3D';
-import { Raycaster } from 'three/src/core/Raycaster';
-import { Vector2 } from 'three/src/math/Vector2';
+import {
+  type Camera,
+  Group,
+  Mesh,
+  type Object3DEventMap,
+  Object3D,
+  Raycaster,
+  Vector2,
+} from 'three';
 
 /**
  * Returns first object in the middle of the screen, if any.
@@ -64,7 +67,7 @@ function getCascadeMeshs(children: Object3D<Object3DEventMap>[]) {
  */
 function getTopParent(
   child: Object3D<Object3DEventMap>,
-  coreObject: Object3D
+  coreObject: Object3D,
 ): Mesh | undefined {
   let parent = child;
   let lastMesh = child;

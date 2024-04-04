@@ -1,7 +1,7 @@
 import { Interactive } from '@react-three/xr';
 import { useEffect, useRef } from 'react';
 import { useControls } from './ControlsContext';
-import { type Mesh } from 'three/src/objects/Mesh';
+import { type Mesh } from 'three';
 import React from 'react';
 
 type Props = {

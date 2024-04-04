@@ -8,8 +8,7 @@ import {
 } from 'react';
 // eslint-disable-next-line
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils.js';
-import { type Object3D, type Object3DEventMap } from 'three/src/core/Object3D';
-import { AnimationMixer } from 'three/src/animation/AnimationMixer';
+import { type Object3D, type Object3DEventMap, AnimationMixer } from 'three';
 import { type GltfModel } from '../Behaviour';
 import { type ARObject } from '../ARObject';
 import { type SpringValue, animated } from '@react-spring/three';
@@ -44,7 +43,7 @@ export function GltfComponent(props: GltfProps) {
       // Creates a function that starts an animation in the GLTF model asset.
       props.gltfModel.callAnimation = (actionName: string) => {
         const selectedAction = model.animations.find(
-          (item) => item.name === actionName
+          (item) => item.name === actionName,
         );
         if (!selectedAction) return;
         mixer.current?.stopAllAction();

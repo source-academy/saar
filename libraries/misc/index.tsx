@@ -1,2 +1,2 @@
-export { Vector3 } from 'three/src/math/Vector3';
+export { Vector3 } from 'three';
 export { ARButton } from '@react-three/xr';

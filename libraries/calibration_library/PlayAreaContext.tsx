@@ -1,6 +1,6 @@
 import { useThree } from '@react-three/fiber';
 import { createContext, useContext, useState } from 'react';
-import { Euler } from 'three/src/math/Euler';
+import { Euler } from 'three';
 import React from 'react';
 import { Vector3 } from '../misc';
 
@@ -48,9 +48,9 @@ export function PlayAreaContext(props: Props): JSX.Element {
       new Vector3(
         cameraPosition.x,
         cameraPosition.y - DEFAULT_HEIGHT,
-        cameraPosition.z
+        cameraPosition.z,
       ),
-      three.camera.rotation
+      three.camera.rotation,
     );
   }
 

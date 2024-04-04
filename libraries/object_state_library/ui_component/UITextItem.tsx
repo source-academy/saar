@@ -1,5 +1,4 @@
-import { type Mesh } from 'three/src/objects/Mesh';
-import { Color } from 'three/src/math/Color';
+import { type Mesh, Color } from 'three';
 import { Vector3 } from '../../misc';
 import { UIBasicItem, type PaddingType } from './UIItem';
 import { Text as ThreeText } from '@react-three/drei';
@@ -55,7 +54,7 @@ export class UITextItem extends UIBasicItem {
     paddingLeft: number | undefined,
     paddingRight: number | undefined,
     paddingTop: number | undefined,
-    paddingBottom: number | undefined
+    paddingBottom: number | undefined,
   ) {
     if (!uiJson || uiJson.type !== TEXT_UI_TYPE) return undefined;
     const text = uiJson.text;

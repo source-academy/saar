@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { type UIBasicItem, UILayoutItem, type PaddingType } from './UIItem';
-import { Color } from 'three/src/math/Color';
+import { Color } from 'three';
 import { Vector3 } from '../../misc';
 import React from 'react';
 
@@ -63,7 +63,7 @@ export class UIRowItem extends UILayoutItem {
     paddingRight: number | undefined,
     paddingTop: number | undefined,
     paddingBottom: number | undefined,
-    parseJsonInterface: (uiJson: any) => UIBasicItem | undefined
+    parseJsonInterface: (uiJson: any) => UIBasicItem | undefined,
   ) {
     if (!uiJson || uiJson.type !== ROW_UI_TYPE) return undefined;
     const verticalAlignmentIndex = uiJson.verticalAlignment;
@@ -165,7 +165,7 @@ function Component(props: {
       const childPosition = new Vector3(
         relativeXPosition,
         relativeYPosition,
-        0
+        0,
       );
       positions.push(childPosition);
     }
@@ -184,7 +184,7 @@ function Component(props: {
       children.push(
         <group key={`component_${component.id}child_${i}`}>
           {child.getComponent(childPosition, updateSize)}
-        </group>
+        </group>,
       );
     }
     return <group key={`children_${component.id}`}>{children}</group>;

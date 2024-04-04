@@ -1,6 +1,4 @@
-import { MeshLambertMaterial } from 'three/src/materials/MeshLambertMaterial';
-import { type Material } from 'three/src/materials/Material';
-import { Texture } from 'three/src/textures/Texture';
+import { MeshLambertMaterial, type Material, Texture } from 'three';
 import { type Vector3 } from '../../misc';
 import { UIBasicItem, type PaddingType } from './UIItem';
 import { useEffect, useState } from 'react';
@@ -37,7 +35,7 @@ export class UIBase64ImageItem extends UIBasicItem {
     paddingLeft: number | undefined,
     paddingRight: number | undefined,
     paddingTop: number | undefined,
-    paddingBottom: number | undefined
+    paddingBottom: number | undefined,
   ) {
     if (!uiJson || uiJson.type !== BASE64_IMAGE_UI_TYPE) return undefined;
     const base64 = uiJson.base64;

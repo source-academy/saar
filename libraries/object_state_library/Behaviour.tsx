@@ -1,8 +1,8 @@
 import {
   type BufferGeometry,
   type NormalBufferAttributes,
-} from 'three/src/core/BufferGeometry';
-import { type Material } from 'three/src/materials/Material';
+  type Material,
+} from 'three';
 import { Vector3 } from '../misc';
 import { type UIBasicItem } from './ui_component/UIItem';
 import { parseVector3 } from './Misc';
@@ -50,7 +50,7 @@ export class ShapeModel implements ModelClass {
   material: Material | Material[] | undefined;
   constructor(
     geometry: BufferGeometry<NormalBufferAttributes> | undefined,
-    material: Material | Material[] | undefined
+    material: Material | Material[] | undefined,
   ) {
     this.geometry = geometry;
     this.material = material;
@@ -243,7 +243,7 @@ export class PathMovement extends MovementClass {
   constructor(
     path: PathItem[],
     startTime?: number,
-    getCurrentTime?: () => number
+    getCurrentTime?: () => number,
   ) {
     super();
     this.path = path;
@@ -280,7 +280,7 @@ export class PathMovement extends MovementClass {
       }
       let ratio = Math.min(
         Math.max(0, currentFrame / (currentItem.duration * 1000)),
-        1
+        1,
       );
       switch (currentItem.style) {
         case MovementStyle.SlowToFast: {
@@ -329,7 +329,7 @@ export class OrbitMovement extends MovementClass {
     radius: number,
     duration: number,
     startTime?: number,
-    getCurrentTime?: () => number
+    getCurrentTime?: () => number,
   ) {
     super();
     this.radius = radius;
@@ -354,7 +354,7 @@ export class OrbitMovement extends MovementClass {
       (this.getCurrentTime() - this.startTime) % (this.duration * 1000);
     const ratio = Math.min(
       Math.max(0, currentFrame / (this.duration * 1000)),
-      1
+      1,
     );
     const angle = ratio * Math.PI * 2;
     const x = position.x + this.radius * Math.sin(angle);

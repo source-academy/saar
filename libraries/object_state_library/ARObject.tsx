@@ -1,5 +1,4 @@
-import { MeshStandardMaterial } from 'three/src/materials/MeshStandardMaterial';
-import { BoxGeometry, SphereGeometry } from 'three';
+import { BoxGeometry, SphereGeometry, MeshStandardMaterial } from 'three';
 import { Vector3 } from '../misc';
 import {
   type Behaviours,
@@ -37,7 +36,7 @@ export class ARObject {
     id: string,
     position: Vector3,
     behaviours: Behaviours,
-    onSelect?: (arObject: ARObject) => void
+    onSelect?: (arObject: ARObject) => void,
   ) {
     this.id = id;
     this.position = position;
@@ -106,7 +105,7 @@ export class CubeObject extends ARObject {
     render?: RenderClass,
     rotation?: RotationClass,
     movement?: MovementClass,
-    onSelect?: (arObject: ARObject) => void
+    onSelect?: (arObject: ARObject) => void,
   ) {
     super(
       id,
@@ -114,13 +113,13 @@ export class CubeObject extends ARObject {
       {
         model: new ShapeModel(
           new BoxGeometry(width, height, depth),
-          new MeshStandardMaterial({ color })
+          new MeshStandardMaterial({ color }),
         ),
         render,
         rotation,
         movement,
       },
-      onSelect
+      onSelect,
     );
     this.width = width;
     this.height = height;
@@ -130,7 +129,7 @@ export class CubeObject extends ARObject {
   static parseObject(
     object: any,
     onSelect?: () => void,
-    getCurrentTime?: () => number
+    getCurrentTime?: () => number,
   ): ARObject | undefined {
     if (!object || object.type !== CUBE_OBJECT_TYPE) return undefined;
     const id = object.id;
@@ -160,7 +159,7 @@ export class CubeObject extends ARObject {
         render,
         rotation,
         movement,
-        onSelect
+        onSelect,
       );
     }
     return undefined;
@@ -183,7 +182,7 @@ export class SphereObject extends ARObject {
     render?: RenderClass,
     rotation?: RotationClass,
     movement?: MovementClass,
-    onSelect?: (arObject: ARObject) => void
+    onSelect?: (arObject: ARObject) => void,
   ) {
     super(
       id,
@@ -191,13 +190,13 @@ export class SphereObject extends ARObject {
       {
         model: new ShapeModel(
           new SphereGeometry(radius, 20, 20),
-          new MeshStandardMaterial({ color })
+          new MeshStandardMaterial({ color }),
         ),
         render,
         rotation,
         movement,
       },
-      onSelect
+      onSelect,
     );
     this.radius = radius;
     this.color = color;
@@ -205,7 +204,7 @@ export class SphereObject extends ARObject {
   static parseObject(
     object: any,
     onSelect?: () => void,
-    getCurrentTime?: () => number
+    getCurrentTime?: () => number,
   ): ARObject | undefined {
     if (!object || object.type !== SPHERE_OBJECT_TYPE) return undefined;
     const id = object.id;
@@ -229,7 +228,7 @@ export class SphereObject extends ARObject {
         render,
         rotation,
         movement,
-        onSelect
+        onSelect,
       );
     }
     return undefined;
@@ -252,7 +251,7 @@ export class GltfObject extends ARObject {
     render?: RenderClass,
     rotation?: RotationClass,
     movement?: MovementClass,
-    onSelect?: (arObject: ARObject) => void
+    onSelect?: (arObject: ARObject) => void,
   ) {
     super(
       id,
@@ -263,7 +262,7 @@ export class GltfObject extends ARObject {
         rotation,
         movement,
       },
-      onSelect
+      onSelect,
     );
     this.src = src;
     this.scale = scale;
@@ -271,7 +270,7 @@ export class GltfObject extends ARObject {
   static parseObject(
     object: any,
     onSelect?: () => void,
-    getCurrentTime?: () => number
+    getCurrentTime?: () => number,
   ): ARObject | undefined {
     if (!object || object.type !== GLTF_OBJECT_TYPE) return undefined;
     const id = object.id;
@@ -295,7 +294,7 @@ export class GltfObject extends ARObject {
         render,
         rotation,
         movement,
-        onSelect
+        onSelect,
       );
     }
     return undefined;
@@ -316,7 +315,7 @@ export class UIObject extends ARObject {
     render?: RenderClass,
     rotation?: RotationClass,
     movement?: MovementClass,
-    onSelect?: (arObject: ARObject) => void
+    onSelect?: (arObject: ARObject) => void,
   ) {
     super(
       id,
@@ -327,14 +326,14 @@ export class UIObject extends ARObject {
         rotation,
         movement,
       },
-      onSelect
+      onSelect,
     );
     this.uiJson = uiJson;
   }
   static parseObject(
     object: any,
     onSelect?: () => void,
-    getCurrentTime?: () => number
+    getCurrentTime?: () => number,
   ): ARObject | undefined {
     if (!object || object.type !== UI_OBJECT_TYPE) return undefined;
     const id = object.id;
@@ -355,7 +354,7 @@ export class UIObject extends ARObject {
         render,
         rotation,
         movement,
-        onSelect
+        onSelect,
       );
     }
     return undefined;
