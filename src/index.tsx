@@ -71,8 +71,14 @@ export {
   UIBasicItem,
   UILayoutItem,
 } from '../libraries/object_state_library/ui_component/UIItem';
-export { default as UIColumnItem } from '../libraries/object_state_library/ui_component/UIColumnItem';
-export { default as UIRowItem } from '../libraries/object_state_library/ui_component/UIRowItem';
+export {
+  default as UIColumnItem,
+  HorizontalAlignment,
+} from '../libraries/object_state_library/ui_component/UIColumnItem';
+export {
+  default as UIRowItem,
+  VerticalAlignment,
+} from '../libraries/object_state_library/ui_component/UIRowItem';
 export { default as UITextItem } from '../libraries/object_state_library/ui_component/UITextItem';
 export { default as UIImageItem } from '../libraries/object_state_library/ui_component/UIImageItem';
 export { default as UIBase64ImageItem } from '../libraries/object_state_library/ui_component/UIBase64ImageItem';
