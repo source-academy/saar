@@ -155,7 +155,9 @@ jsonObjectsArray.forEach((jsonObject) => {
 });
 ```
 
-Note that onselect functions cannot be restored from the JSON. Instead, we need to store the functions separately, and identify the right onclick function for an object by its id. Then, we can assign the onselect callback for the AR objects.
+If you have created your own AR object classes by extending `ARObject`, you will need to create a new function to parse the additional objects. You can refer to `fromObject` for how to do so.
+
+Note that onselect functions cannot be restored from the JSON. Instead, we need to store the functions separately, and identify the right onclick function for an object by its id. Then, we can assign the onselect callback for the AR objects, as seen below.
 
 ```ts
 arObjects.forEach((arObject) => {
