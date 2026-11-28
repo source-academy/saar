@@ -1,6 +1,6 @@
 # Introduction
 
-Needs Node 24 (the version in `.node-version`; see the [Node.js version](https://github.com/source-academy/documentation/blob/main/app/docs/developers/node-version.md) page).
+Needs Node 24 (the version in `.node-version`; see the [Node.js version](https://docs.sourceacademy.org/developer/node-version) page).
 
 This package provides a simplified way to create AR content, from adding objects to the augmented world with predefined behaviours, to recalibrating the user's position. Based on Three.js.
 
